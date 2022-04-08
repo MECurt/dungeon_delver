@@ -11,7 +11,7 @@ fn main() {
         let mut input = String::new();
         match stdin.read_line(&mut input) {
             Ok(_) => {
-                match g.parse_command() {
+                match g.parse_command(&input) {
                     GameResponse::OK => {
                         println!("Command received");
                     }
@@ -24,9 +24,7 @@ fn main() {
                     }
                 }
             }
-            Err(e) => {
-                println!("Error reading input: {}", e);
-            }
+            Err(e) => println!("Error reading input: {}", e)
         }
     }
 }
