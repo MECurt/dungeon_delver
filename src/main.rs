@@ -12,16 +12,12 @@ fn main() {
         match stdin.read_line(&mut input) {
             Ok(_) => {
                 match g.parse_command(&input) {
-                    GameResponse::OK => {
-                        println!("Command received");
-                    }
+                    GameResponse::OK => println!("Command received"),
                     GameResponse::EXIT => {
                         println!("Exiting game");
                         break;
-                    }
-                    GameResponse::UNKNOWN => {
-                        println!("Unknown command");
-                    }
+                    },
+                    GameResponse::UNKNOWN => println!("Unknown command"),
                 }
             }
             Err(e) => println!("Error reading input: {}", e)
