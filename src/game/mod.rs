@@ -1,3 +1,5 @@
+mod room;
+
 pub enum GameResponse {
     OK,
     EXIT,
