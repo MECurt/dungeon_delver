@@ -1,4 +1,4 @@
-mod room;
+mod tile;
 
 pub enum GameResponse {
     OK,
@@ -15,13 +15,15 @@ enum GameCommand {
     EXIT,
 }
 pub struct Game {
-    turn_count: u64,
+    turn_count: u32,
+    floor: Vec<Vec<tile::Tile>>,
 }
 
 impl Game {
     pub fn new() -> Game {
         Game {
             turn_count: 0,
+            floor: tile::floor(5, 5),
         }
     }
 
