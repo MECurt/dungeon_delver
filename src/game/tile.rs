@@ -1,9 +1,15 @@
 pub struct Tile {
-    id: (u32, u32)
+    id: (u32, u32),
+    look: char,
 }
 impl Tile {
     pub fn new(id: (u32, u32)) -> Tile {
-        Tile {id}
+        Tile {
+            id,
+            look: '_'}
+    }
+    pub fn show(&self) -> char {
+        self.look
     }
 }
 
@@ -25,9 +31,10 @@ mod tests {
     use super::*;
     #[test]
     fn make_floor() {
-        let f = floor(5, 5);
+        let f = floor(5, 6);
         assert_eq!(f[0][0].id, (0, 0));
         assert_eq!(f[1][0].id, (1, 0));
         assert_eq!(f[4][3].id, (4, 3));
+        assert_eq!(f[4][5].id, (4, 5));
     }
 }
